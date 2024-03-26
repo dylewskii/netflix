@@ -7,7 +7,7 @@ function List() {
     <div className="list">
       <span className="listTitle">Continue watching</span>
       <div className="wrapper">
-        <MdArrowBackIos />
+        <MdArrowBackIos className="sliderArrow left" />
         <div className="container">
           <ListItem />
           <ListItem />
@@ -19,7 +19,7 @@ function List() {
           <ListItem />
           <ListItem />
         </div>
-        <MdArrowForwardIos />
+        <MdArrowForwardIos className="sliderArrow right" />
       </div>
     </div>
   );
