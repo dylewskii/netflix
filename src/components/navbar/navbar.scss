@@ -1,3 +1,12 @@
 .navbar {
   color: white;
+  font-size: 1rem;
+
+  .container {
+    padding: 0 50px;
+
+    img {
+      height: 25px;
+    }
+  }
 }
