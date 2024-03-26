@@ -1,12 +1,74 @@
 .navbar {
   color: white;
   font-size: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  background: linear-gradient(top top, transparent 0%, rgb(0, 0, 0, 0.3) 50%);
+
+  &.scrolled {
+    background-color: var(--primary-color);
+  }
 
   .container {
     padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
 
-    img {
-      height: 25px;
+    .left,
+    .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .left {
+      img {
+        height: 25px;
+      }
+
+      span {
+        margin-right: 20px;
+        cursor: pointer;
+      }
+    }
+
+    .right {
+      .icon {
+        margin: 0 1rem;
+        cursor: pointer;
+      }
+
+      img {
+        height: 30px;
+        width: 30px;
+        border-radius: 5px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+
+      .profile {
+        .options {
+          display: none;
+          background-color: var(--primary-color);
+          border-radius: 5px;
+        }
+
+        span {
+          padding: 1rem 0.8rem;
+          cursor: pointer;
+        }
+
+        &:hover {
+          .options {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+          }
+        }
+      }
     }
   }
 }
