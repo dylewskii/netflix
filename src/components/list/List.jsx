@@ -1,21 +1,30 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import ListItem from "../list-item/ListItem";
 import "./list.scss";
 import { MdArrowBackIos, MdArrowForwardIos } from "react-icons/md";
 
 function List() {
   const listRef = useRef();
+  const [slideNumber, setSlideNumber] = useState(0);
+  const [hasMoved, setHasMoved] = useState(false);
 
   const handleSlideClick = (direction) => {
-    // distance from the start of the webpage (X)
-    let distance = listRef.current.getBoundingClientRect().x - 50;
+    setHasMoved(true);
 
-    if (direction === "left") {
+    // distance from the left side of the page (minus slider arrow width) (X)
+    let distance = listRef.current.getBoundingClientRect().x - 50;
+    const totalNumberOfSlides = 5;
+
+    // left click
+    if (direction === "left" && slideNumber > 0) {
+      setSlideNumber(slideNumber - 1);
       listRef.current.style.transform = `translateX(${230 + distance}px)`;
-    } else if (direction === "right") {
+    }
+
+    // right click
+    if (direction === "right" && slideNumber < totalNumberOfSlides) {
+      setSlideNumber(slideNumber + 1);
       listRef.current.style.transform = `translateX(${-230 + distance}px)`;
-    } else {
-      throw new Error("Incorrect direction");
     }
   };
 
@@ -26,8 +35,10 @@ function List() {
         <MdArrowBackIos
           className="sliderArrow left"
           onClick={() => handleSlideClick("left")}
+          style={{ display: !hasMoved && "none" }}
         />
         <div className="container" ref={listRef}>
+          <ListItem />
           <ListItem />
           <ListItem />
           <ListItem />
