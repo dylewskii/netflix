@@ -1,0 +1,106 @@
+.login {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 100%
+    ),
+    url("https://assets.nflxext.com/ffe/siteui/vlv3/9d3533b2-0e2b-40b2-95e0-ecd7979cc88b/3838227f-4f02-4fbf-9fcc-ca852c0313f6/GB-en-20240311-popsignuptwoweeks-perspective_alpha_website_small.jpg");
+
+  background-size: cover;
+  position: relative;
+
+  .top {
+    .wrapper {
+      padding: 20px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .logo {
+        height: 40px;
+      }
+    }
+  }
+
+  .container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+
+    form {
+      width: 400px;
+      height: 400px;
+      padding: 2rem;
+      border-radius: 5px;
+      background-color: var(--main-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      /* glass effect */
+      background: rgba(24, 24, 26, 0.69);
+      border-radius: 16px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      border: 1px solid rgba(24, 24, 26, 0.3);
+
+      h1 {
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      input {
+        height: 60px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(20, 20, 21);
+        color: var(--white);
+        padding: 1rem 20px;
+        outline: var(--white);
+
+        &::placeholder {
+          color: lightgray;
+        }
+      }
+
+      button {
+        height: 40px;
+        border-radius: 5px;
+        background-color: red;
+        color: var(--white);
+        border: none;
+        font-size: 18px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+      span {
+        color: lightgray;
+        b {
+          color: var(--white);
+          cursor: pointer;
+        }
+      }
+
+      small {
+        color: grey;
+
+        b {
+          color: rgb(59, 59, 251);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
