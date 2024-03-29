@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
-import User from "../models/User.js";
-import express from "express";
-const router = express.Router;
+const User = require("../models/User");
+const express = require("express").Router;
 
 router.post("/register", async (req, res) => {
   const newUser = new User({
@@ -13,4 +12,4 @@ router.post("/register", async (req, res) => {
   const user = newUser.save();
 });
 
-export default router;
+module.exports = router;

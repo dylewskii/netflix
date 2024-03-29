@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const ListSchema = new mongoose.Schema(
   {
@@ -10,6 +10,4 @@ const ListSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const List = mongoose.model("List", ListSchema);
-
-export default List;
+module.exports = mongoose.model("List", ListSchema);

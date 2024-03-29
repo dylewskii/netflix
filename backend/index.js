@@ -1,6 +1,6 @@
-import "dotenv/config.js";
-import express from "express";
-import mongoose from "mongoose";
+const dotenv = require("dotenv").config();
+const express = require("express");
+const mongoose = require("mongoose");
 
 const app = express();
 mongoose
@@ -11,5 +11,5 @@ mongoose
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log("Backend active");
+  console.log("Express running");
 });
