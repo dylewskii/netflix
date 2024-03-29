@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 const User = require("../models/User");
-const express = require("express").Router;
+const router = require("express").Router();
 
 router.post("/register", async (req, res) => {
   const newUser = new User({
@@ -9,7 +9,12 @@ router.post("/register", async (req, res) => {
     password: req.body.password,
   });
 
-  const user = newUser.save();
+  try {
+    const user = await newUser.save();
+    res.status(201).json(user);
+  } catch (error) {
+    res.status(500).json(error);
+  }
 });
 
 module.exports = router;
