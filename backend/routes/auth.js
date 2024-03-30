@@ -38,10 +38,16 @@ router.post("/login", async (req, res) => {
       res.status(401).json({ msg: "Wrong password or username", code: 401 });
     }
 
+    const accessToken = jwt.sign(
+      { id: user._id, isAdmin: user.isAdmin },
+      process.env.JWT_KEY,
+      { expiresin: "5d" }
+    );
+
     // Omit the password from the user object before sending it back
     const { password, ...userData } = user._doc;
 
-    res.status(200).json({ user: userData });
+    res.status(200).json({ user: userData, token: accessToken });
   } catch (error) {
     // res.status(500).json(error);
     if (!res.headersSent) {
