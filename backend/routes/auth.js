@@ -2,6 +2,7 @@
 const User = require("../models/User");
 const router = require("express").Router();
 const CryptoJS = require("crypto-js");
+const jwt = require("jsonwebtoken");
 
 router.post("/register", async (req, res) => {
   const newUser = new User({
@@ -41,7 +42,7 @@ router.post("/login", async (req, res) => {
     const accessToken = jwt.sign(
       { id: user._id, isAdmin: user.isAdmin },
       process.env.JWT_KEY,
-      { expiresin: "5d" }
+      { expiresIn: "5d" }
     );
 
     // Omit the password from the user object before sending it back
@@ -49,6 +50,7 @@ router.post("/login", async (req, res) => {
 
     res.status(200).json({ user: userData, token: accessToken });
   } catch (error) {
+    console.error(error);
     // res.status(500).json(error);
     if (!res.headersSent) {
       res
