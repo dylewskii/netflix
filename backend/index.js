@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 // routes
 const authRouter = require("./routes/auth");
+const usersRouter = require("./routes/users");
 
 const port = process.env.PORT || 8000;
 const app = express();
@@ -15,6 +16,7 @@ mongoose
 app.use(express.json());
 
 app.use("/api/auth/", authRouter);
+app.use("/api/users", usersRouter);
 
 app.listen(port, () => {
   console.log("Express running");
